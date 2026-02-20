@@ -18,9 +18,6 @@ This project replicates core Postman functionality directly inside the browser p
 - ✅ Status code display
 - ✅ Pretty JSON formatting
 - ✅ Error handling
-- ✅ Local request persistence using Chrome Storage
-- ✅ VS Code bridge support (via local Node.js server)
-
 ---
 
 ## 🏗 Architecture
@@ -28,7 +25,6 @@ This project replicates core Postman functionality directly inside the browser p
 Chrome Extension (Manifest v3)  
 → Uses Fetch API for HTTP requests  
 → Uses Chrome Storage API for persistence  
-→ Optional Node.js local bridge for VS Code sync  
 
 ---
 
@@ -80,61 +76,11 @@ The extension will now appear in your browser toolbar.
 
 ---
 
-## 💻 VS Code Integration (Optional Advanced Feature)
-
-A local Node.js bridge server enables syncing request configurations from VS Code to the extension.
-
-### Setup Bridge Server
-
-```bash
-npm init -y
-npm install express cors
-```
-
-Create `server.js`:
-
-```js
-const express = require("express");
-const cors = require("cors");
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-let latestRequest = null;
-
-app.post("/request", (req, res) => {
-  latestRequest = req.body;
-  res.json({ message: "Request stored successfully" });
-});
-
-app.get("/request", (req, res) => {
-  res.json(latestRequest);
-});
-
-app.listen(5000, () => {
-  console.log("Bridge server running on http://localhost:5000");
-});
-```
-
-Run:
-
-```bash
-node server.js
-```
-
-Now the extension can sync request configurations from VS Code.
-
----
-
 ## ⚙️ Technologies Used
 
 - JavaScript (ES6+)
 - Chrome Extension API (Manifest v3)
 - Fetch API
-- Chrome Storage API
-- Node.js (Optional bridge)
-- Express.js
 
 ---
 
@@ -148,7 +94,6 @@ This project demonstrates:
 - Chrome extension architecture
 - Performance measurement
 - Error handling strategies
-- Cross-environment communication
 
 ---
 
