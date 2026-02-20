@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dev REST Client</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Dev REST Client</h1>
+
+    <div class="row">
+      <select id="method" class="method">
+        <option>GET</option>
+        <option>POST</option>
+        <option>PUT</option>
+        <option>PATCH</option>
+        <option>DELETE</option>
+      </select>
+
+      <input type="text" id="url" placeholder="Enter API URL">
+    </div>
+
+    <div class="section">
+      <h3>Headers</h3>
+      <div id="headers"></div>
+      <button id="addHeader" class="secondary">+ Add Header</button>
+    </div>
+
+    <div class="section">
+      <h3>Body (JSON)</h3>
+      <textarea id="body" placeholder='{"key":"value"}'></textarea>
+    </div>
+
+    <button id="send" class="primary">Send Request</button>
+
+    <div class="section">
+      <h3>Response</h3>
+      <div id="status" class="status"></div>
+      <pre id="response"></pre>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Dev REST Client",
+  "version": "1.0",
+  "description": "Lightweight REST API testing tool.",
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
